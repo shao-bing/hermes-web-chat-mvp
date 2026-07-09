@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hermes Chat MVP</title>
+</head>
+
+<body>
+    <h2>🧠 Hermes Web Chat MVP</h2>
+
+    <input id="msg" style="width:300px;" placeholder="Type message..." />
+    <button onclick="send()">Send</button>
+
+    <pre id="output" style="margin-top:20px;"></pre>
+
+    <script>
+        async function send() {
+            const msg = document.getElementById("msg").value;
+
+            const res = await fetch("/api/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: msg })
+            });
+
+            const data = await res.json();
+            document.getElementById("output").innerText = data.reply;
+        }
+    </script>
+</body>
+</html>
