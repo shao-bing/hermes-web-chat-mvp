@@ -73,3 +73,6 @@ hermes-web-chat-mvp/
 
 └── README.md
 ```
+
+### more details: https://happyrock.cloud/docs/hermes-web-chat-mvp/
+
